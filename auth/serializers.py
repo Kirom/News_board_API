@@ -1,4 +1,5 @@
 """Auth's serializers."""
+from api.models import Post
 
 from django.contrib.auth.models import Group, User
 
@@ -9,6 +10,8 @@ from rest_framework.authtoken.models import Token
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     """Serializes user's model."""
 
+    posts = serializers.PrimaryKeyRelatedField(many=True, queryset=Post.objects.all())
+
     class Meta:
         """Defining metadata for group's model serializer."""
 
@@ -17,7 +20,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {"password": {"write_only": True, "required": True}}
 
     def create(self, validated_data):
-        """Creates users with token."""
+        """Create users with token."""
         user = User.objects.create_user(**validated_data)
         Token.objects.create(user=user)
         return user

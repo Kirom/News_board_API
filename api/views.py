@@ -15,6 +15,10 @@ class PostViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
+    def perform_create(self, serializer):
+        """Create posts by current user authenticated via Token."""
+        serializer.save(author_name=self.request.user)
+
 
 class CommentViewSet(viewsets.ModelViewSet):
     """API endpoint that allows posts to be viewed or edited."""
@@ -23,3 +27,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        """Create comments by current user authenticated via Token."""
+        serializer.save(author_name=self.request.user)

@@ -36,6 +36,8 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     """Serializes comment's model."""
 
+    author_name = serializers.SerializerMethodField()
+
     class Meta:
         """Defining metadata for group's model serializer."""
 
@@ -48,3 +50,12 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
             "creation_date",
             "post",
         ]
+
+    @staticmethod
+    def get_author_name(obj):
+        """Represent author's name as just name instead of user's object."""
+        return (
+            Comment.objects.select_related("author_name")
+            .get(pk=obj.pk)
+            .author_name.username
+        )

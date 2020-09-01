@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     link = models.CharField(max_length=150)
     creation_date = models.DateTimeField(default=datetime.now)
-    amount_of_upvotes = models.IntegerField(default=0)
+    amount_of_upvotes = models.PositiveIntegerField(default=0)
     author_name = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

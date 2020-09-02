@@ -37,5 +37,10 @@ class ProdConf(BaseConf):
     db = dj_database_url.config()
     DATABASES["default"].update(db)
 
+    REDIS_HOST = "ec2-79-125-17-63.eu-west-1.compute.amazonaws.com"
+    REDIS_PORT = "24509"
+    REDIS_USER = "h"
+    REDIS_PASSWORD = "pc52a3304dae7800a67cfee553cf6b61edaeff962d725834fce2e7175c84827e7"
+    BROKER_URL = "redis://h:pc52a3304dae7800a67cfee553cf6b61edaeff962d725834fce2e7175c84827e7@ec2-79-125-17-63.eu-west-1.compute.amazonaws.com:24509"
     BROKER_TRANSPORT_OPTIONS = {"visibility_timeout": 3600}
     CELERY_RESULT_BACKEND = "redis://h:pc52a3304dae7800a67cfee553cf6b61edaeff962d725834fce2e7175c84827e7@ec2-79-125-17-63.eu-west-1.compute.amazonaws.com:24509"

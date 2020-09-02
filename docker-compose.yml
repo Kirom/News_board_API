@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    restart: always
+    container_name: 'News_board_API_redis'
+    command: redis-server
+    ports:
+      - '6379:6379'
+  web:
+    build: .
+    restart: always
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: News_board_API
+    volumes:
+      - .:/News_board_API
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+  celery:
+    build: .
+    container_name: 'News_board_API_celery'
+    command: celery -A News_board_API worker --loglevel=info
+    volumes:
+      - .:/News_board_API
+    links:
+      - redis
+    depends_on:
+      - web
+      - redis
+  celery-beat:
+    build: .
+    container_name: 'News_board_API_celery_beat'
+    command: celery -A News_board_API beat -l info
+    volumes:
+      - .:/News_board_API
+    depends_on:
+      - redis

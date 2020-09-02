@@ -20,7 +20,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     "run-every-day": {
         "task": "api.tasks.clean_upvotes",
-        "schedule": crontab(),
+        "schedule": crontab(minute=0, hour=0),
     },
 }
 # celery -A News_board_API worker --loglevel=info

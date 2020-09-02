@@ -36,7 +36,7 @@ class PostViewSet(viewsets.ModelViewSet):
                 return Response({"message": "Something went wrong :("})
             return Response(response)
         except ObjectDoesNotExist:
-            return Response({"message": "Something went wrong :("})
+            return Response({"message": "Provided post doesn't exist"})
 
 
 class CommentViewSet(viewsets.ModelViewSet):

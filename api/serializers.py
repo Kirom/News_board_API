@@ -38,13 +38,7 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
         """Defining metadata for group's model serializer."""
 
         model = Comment
-        fields = [
-            "id",
-            "url",
-            "author_name",
-            "content",
-            "creation_date",
-        ]
+        fields = ["id", "url", "author_name", "content", "creation_date", "post"]
 
     @staticmethod
     def get_author_name(obj):

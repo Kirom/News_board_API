@@ -10,6 +10,11 @@ class ProdConf(BaseConf):
     DB_USER = os.environ.get("DB_USER")
     DB_PASSWORD = os.environ.get("DB_PASSWORD")
     DB_HOST = os.environ.get("DB_HOST")
+    # REDIS_HOST = os.environ.get("REDIS_HOST")
+    # REDIS_PORT = os.environ.get("REDIS_PORT")
+    # BROKER_URL = os.environ.get("BROKER_URL")
+    # BROKER_TRANSPORT_OPTIONS = os.environ.get("BROKER_TRANSPORT_OPTIONS")
+    # CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
 
     SECRET_KEY = os.environ.get("SECRET_KEY")
 
@@ -31,3 +36,6 @@ class ProdConf(BaseConf):
 
     db = dj_database_url.config()
     DATABASES["default"].update(db)
+
+    BROKER_TRANSPORT_OPTIONS = {"visibility_timeout": 3600}
+    CELERY_RESULT_BACKEND = "redis://h:pc52a3304dae7800a67cfee553cf6b61edaeff962d725834fce2e7175c84827e7@ec2-79-125-17-63.eu-west-1.compute.amazonaws.com:24509"

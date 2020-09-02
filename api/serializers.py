@@ -4,7 +4,7 @@ from api.models import Comment, Post
 from rest_framework import serializers
 
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     """Serializes post's model."""
 
     author_name = serializers.SerializerMethodField(read_only=True)
@@ -15,7 +15,6 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         model = Post
         fields = [
             "id",
-            "url",
             "title",
             "link",
             "creation_date",
@@ -29,7 +28,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         return obj.author_name.username
 
 
-class CommentSerializer(serializers.HyperlinkedModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     """Serializes comment's model."""
 
     author_name = serializers.SerializerMethodField()
@@ -38,7 +37,7 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
         """Defining metadata for group's model serializer."""
 
         model = Comment
-        fields = ["id", "url", "author_name", "content", "creation_date", "post"]
+        fields = ["id", "author_name", "content", "creation_date", "post"]
 
     @staticmethod
     def get_author_name(obj):

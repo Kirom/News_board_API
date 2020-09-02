@@ -1,0 +1,1 @@
+web: gunicorn News_board_API.wsgi --log-file -

@@ -5,7 +5,7 @@ FROM python:3.7.7
 # The enviroment variable ensures that the python output is set straight
 # to the terminal with out buffering it first
 ENV PYTHONUNBUFFERED 1
-
+ENV DJANGO_CONFIGURATION LocalConf
 # create root directory for our project in the container
 RUN mkdir /News_board_API
 

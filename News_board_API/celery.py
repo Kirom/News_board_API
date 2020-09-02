@@ -7,9 +7,12 @@ from celery import Celery
 from celery.schedules import crontab
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "News_board_API.settings")
+os.environ.setdefault("DJANGO_CONFIGURATION", "LocalConf")
+import configurations  # noqa
+
+configurations.setup()
 
 app = Celery("News_board_API")
-
 app.config_from_object("django.conf:settings")
 
 app.autodiscover_tasks()

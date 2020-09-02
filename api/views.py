@@ -12,7 +12,7 @@ from rest_framework.response import Response
 class PostViewSet(viewsets.ModelViewSet):
     """API endpoint that allows posts to be viewed or edited."""
 
-    queryset = Post.objects.all()
+    queryset = Post.objects.select_related("author_name")
     serializer_class = PostSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -37,7 +37,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     """API endpoint that allows posts to be viewed or edited."""
 
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.select_related("author_name")
     serializer_class = CommentSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)

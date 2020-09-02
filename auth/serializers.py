@@ -10,7 +10,7 @@ from rest_framework.authtoken.models import Token
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     """Serializes user's model."""
 
-    posts = serializers.PrimaryKeyRelatedField(many=True, queryset=Post.objects.all())
+    # posts = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         """Defining metadata for group's model serializer."""

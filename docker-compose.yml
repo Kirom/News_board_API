@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  db:
+    image: postgres:latest
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
   redis:
     image: redis
     restart: always
@@ -17,6 +21,7 @@ services:
       - .:/News_board_API
     depends_on:
       - redis
+      - db
     ports:
       - "8000:8000"
   celery:

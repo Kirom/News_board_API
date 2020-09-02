@@ -19,12 +19,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "pys^v=+5+!bj4w9%5uxoq2mp@mp9&hybspq_i3fd&jev!z6h_u"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["news-board-api-1.herokuapp.com"]
 
 # Application definition
 
@@ -75,8 +75,12 @@ WSGI_APPLICATION = "News_board_API.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "News_board_API",
+        "USER": "postgres",
+        "PASSWORD": "Kirom1248",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

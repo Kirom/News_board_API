@@ -1,3 +1,4 @@
+"""Separating local and production settings."""
 from .prod_conf import ProdConf
 
 try:

@@ -42,7 +42,7 @@ class BaseConf(Configuration):
         "django.contrib.staticfiles",
         "rest_framework",
         "rest_framework.authtoken",
-        "api.apps.ApiConfig",
+        "api",
     ]
 
     MIDDLEWARE = [

@@ -2,6 +2,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Python test assessment for DevelopsToday.
+
+Deployment link: `https://news-board-api-1.herokuapp.com/` or [click](https://news-board-api-1.herokuapp.com/).
+
 If you cannot run via Docker by first instruction, use second instruction then.
 ## 1) Running Docker's containers steps
 1. Clone repo: `git clone https://github.com/Kirom/News_board_API.git`
@@ -19,3 +22,4 @@ If you cannot run via Docker by first instruction, use second instruction then.
 6. Run redis `redis-server`
 7. Run celery worker `celery -A News_board_API worker -l info -B`
 8. Start the app itself `./manage.py runserver`
+

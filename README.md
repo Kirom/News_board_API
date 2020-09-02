@@ -3,6 +3,8 @@
 
 Python test assessment for DevelopsToday.
 
+If you have any questions, you can contact me in telegram @Nizhdanchik or email me viktor.mironov.dev@gmail.com.
+
 Deployment link: `https://news-board-api-1.herokuapp.com/` or [click](https://news-board-api-1.herokuapp.com/).
 
 Postman collection link: `https://www.getpostman.com/collections/884be669324a50c8151d`

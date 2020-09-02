@@ -28,7 +28,7 @@ class PostViewSet(viewsets.ModelViewSet):
         previous_amount_of_upvotes = post.amount_of_upvotes
         post.amount_of_upvotes += 1
         post.save()
-        response = {"message": "Upvoted!"}
+        response = {"message": "Successfully upvoted!"}
         if post.amount_of_upvotes == previous_amount_of_upvotes:
             return Response({"message": "Something went wrong :("})
         return Response(response)

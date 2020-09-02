@@ -1,4 +1,4 @@
-"""Api's tasks for celery"""
+"""Api's tasks for celery."""
 from News_board_API.celery import app
 
 from api.models import Post

@@ -11,6 +11,10 @@ Postman collection link: https://www.getpostman.com/collections/884be669324a50c8
 
 Postman environments files in json format are `News board deploy.postman_environment.json` and `News board develop.postman_environment.json`
 
+To authorize you need to provide token in headers. Example: Key: `Authorization`, Value: `Token 1b0224d68a33a60c7467e66751d4ae504c04acbe`.
+
+You can obtain token by registering account via auth.
+
 If you cannot run via Docker by first instruction, use second instruction then.
 ## 1) Running Docker's containers steps
 1. Clone repo: `git clone https://github.com/Kirom/News_board_API.git`

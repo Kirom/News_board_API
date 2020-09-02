@@ -7,7 +7,7 @@ If you have any questions, you can contact me in telegram @Nizhdanchik or email 
 
 Deployment link: `https://news-board-api-1.herokuapp.com/` or [click](https://news-board-api-1.herokuapp.com/).
 
-Postman collection link: `https://www.getpostman.com/collections/884be669324a50c8151d`
+Postman collection link: https://www.getpostman.com/collections/884be669324a50c8151d
 
 Postman environments files in json format are `News board deploy.postman_environment.json` and `News board develop.postman_environment.json`
 

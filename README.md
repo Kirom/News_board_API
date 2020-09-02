@@ -5,6 +5,10 @@ Python test assessment for DevelopsToday.
 
 Deployment link: `https://news-board-api-1.herokuapp.com/` or [click](https://news-board-api-1.herokuapp.com/).
 
+Postman collection link: `https://www.getpostman.com/collections/884be669324a50c8151d`
+
+Postman environments files in json format are `News board deploy.postman_environment.json` and `News board develop.postman_environment.json`
+
 If you cannot run via Docker by first instruction, use second instruction then.
 ## 1) Running Docker's containers steps
 1. Clone repo: `git clone https://github.com/Kirom/News_board_API.git`
